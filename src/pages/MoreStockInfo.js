@@ -4,7 +4,9 @@ const MoreStockInfo=(props)=>{
   
   
   const symbol = props.match.params.symbol;
-  const url =`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${apiKey}`
+  const API_KEY = process.env.API_KEY;
+
+  const url =`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${API_KEY}`
   console.log("the symbol - ", symbol);
 
   const[stock, setStock] = useState(null)

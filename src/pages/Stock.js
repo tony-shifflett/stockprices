@@ -8,7 +8,8 @@ import {Link} from 'react-router-dom'
 const Stock = (props) => {
   
   const symbol = props.match.params.symbol;
-  const url =`https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${apiKey}`
+  const API_KEY = process.env.API_KEY;
+  const url =`https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${API_KEY}`
   console.log("the symbol - ", symbol);
   
 
