@@ -1,11 +1,11 @@
-import stockData from "./stockData";
+import stocks from "../data/Stocks";
 import {Link} from 'react-router-dom'
 
 const Dashboard = () => {
-  console.log(stockData);
+  console.log(stocks);
   return (
     <div className="stock">
-    {stockData.map((stock, index)=>{
+    {stocks.map((stock, index)=>{
         const {name, symbol} = stock
 
         return (
