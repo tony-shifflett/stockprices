@@ -1,0 +1,47 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: rgb(55,64,80);
+    height: 100vh;
+  }
+  
+  .nav {
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+    
+  }
+  .nav a {
+    color: white;
+    font-size: .95em;
+    text-decoration: none;
+  }
+  #nav-home {
+    color:black;
+  }
+  #nav-home span{
+    color:goldenrod;
+  }
+  .home{
+    padding-top: 150px;
+    font-size: 3em;
+  }
+  .stockname{
+    color: white;
+  }
+  
+  .stockdisplay{
+    color: goldenrod;
+  }
+  
+   a{
+    color: goldenrod; 
+    text-decoration: none;
+    font-size: .75em;
+  }
+  
+  h1 span{
+  color: goldenrod;
+  }
