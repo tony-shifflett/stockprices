@@ -1,4 +1,4 @@
-import stockData from './stockData'
+import stocks from './data/Stocks'
 import React, {useState, useEffect} from 'react'
 import {Line} from 'react-chartjs-2'
 import {Link} from 'react-router-dom'
