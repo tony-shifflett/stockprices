@@ -8,18 +8,19 @@ import {Link} from 'react-router-dom'
 const Stock = (props) => {
   
   const symbol = props.match.params.symbol;
-  const API_KEY = process.env.API_KEY;
-  const url =`https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${API_KEY}`
+  // const url =`https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${API_KEY}`
   console.log("the symbol - ", symbol);
   
 
   const[stock, setStock] = useState(null)
 
   const getStock=async()=>{
-    const response = await fetch(url)
+    console.log(process.env.REACT_APP_STOCK_URL+'/'+symbol)
+    const response = await fetch(process.env.REACT_APP_Stock_URL+"/"+symbol)
     const data= await response.json()
-    setStock(data)
     console.log(data)
+    setStock(data)
+    console.log("response data", data)
   }
 
   // const thisStock = stockData.filter(function (stock) { return stock.symbol === symbol})
