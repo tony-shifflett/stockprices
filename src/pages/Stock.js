@@ -10,7 +10,7 @@ const Stock = (props) => {
   const[stock, setStock] = useState(null)
 
   const getStock=async()=>{
-    const response = await fetch(process.env.REACT_APP_STOCK_URL+"/"+props.match.params.symbol)
+    const response = await fetch(process.env.REACT_APP_STOCK_URL+props.match.params.symbol)
     const data= await response.json()
     setStock(data)
   }
