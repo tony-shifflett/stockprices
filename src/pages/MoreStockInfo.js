@@ -1,31 +1,31 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { assignDetails } from '../redux-toolkit/stockSlice'
+
 const MoreStockInfo=(props)=>{
   
-  
-  const symbol = props.match.params.symbol;
-  const API_KEY = process.env.API_KEY;
+  const dispatch = useDispatch();
+  const symbol = useSelector((state)=>state.stockInfo.symbol)
+  const details = useSelector((state=>state.stockInfo.details))
 
-  const url =`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${API_KEY}`
-  console.log("the symbol - ", symbol);
+  const[moreInfo, setMoreInfo] = useState(null)
 
-  const[stock, setStock] = useState(null)
-
-  const getStock=async()=>{
-    const response = await fetch(url)
+  const getInfo=async()=>{
+    const response = await fetch(process.env.REACT_APP_STOCK_DETAILS_URL+symbol)
     const data= await response.json()
-    setStock(data)
-    console.log(data)
+    setMoreInfo(data)
   }
+ 
+  useEffect(()=>{getInfo()} ,[])
+  dispatch(assignDetails(moreInfo))
 
-  useEffect(()=>{getStock()} ,[])
   const loaded = ()=>{  
      return(
       <>
         <h1>{symbol}</h1>
-        <h2>{stock[0].companyName}</h2>
-        <h2>CEO: {stock[0].ceo}</h2>
-        <img src={stock[0].image}/>
+        <h2>{details[0].companyName}</h2>
+        <h2>CEO: {details[0].ceo}</h2>
+        <img src={details[0].image} alt={`company logo for ${details[0].companyName}`}/>
         
 
       </>
@@ -37,6 +37,6 @@ const MoreStockInfo=(props)=>{
   }
 
 
-  return stock? loaded():loading
+  return details? loaded():loading()
 }
 export default MoreStockInfo

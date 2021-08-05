@@ -2,7 +2,6 @@ import stocks from "../data/Stocks";
 import {Link} from 'react-router-dom'
 
 const Dashboard = () => {
-  console.log(stocks);
   return (
     <div className="stock">
     {stocks.map((stock, index)=>{
