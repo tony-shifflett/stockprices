@@ -2,8 +2,6 @@ import stocks from "../data/Stocks";
 import {Link} from 'react-router-dom'
 
 const Dashboard = () => {
-  //DEV LOG
-  console.log("In dashboard now")
   return (
     <div className="stock">
     {stocks.map((stock, index)=>{
